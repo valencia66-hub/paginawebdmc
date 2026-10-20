@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DEVIL MAY CRY</title>
+
+    <!-- Tipografía (opcional, tiene alternativa si no carga) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
+
+    <!-- Conexión con CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         ENCABEZADO
+    ========================== -->
+
+    <header>
+
+        <div class="logo">
+            DEVIL MAY CRY
+        </div>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">¿Qué es Devil May Cry?</a>
+            <a href="#caracteristicas">Características</a>
+            <a href="#galeria">Los juegos</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         SECCIÓN PRINCIPAL
+    ========================== -->
+
+    <section id="inicio" class="hero">
+
+        <div class="hero-text">
+
+            <h1>DEVIL MAY CRY</h1>
+
+            <p>
+                Dante, hijo del caballero oscuro Sparda, caza demonios con
+                estilo, humor y una espada enorme. Esta es la saga de acción
+                que definió el género "hack and slash".
+            </p>
+
+            <button onclick="mostrarMensaje()">
+                Conoce la saga
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ¿QUÉ ES DEVIL MAY CRY?
+    ========================== -->
+
+    <section id="nosotros" class="section">
+
+        <h2>¿QUÉ ES DEVIL MAY CRY?</h2>
+
+        <p class="texto-centro">
+
+            Devil May Cry es una saga de videojuegos de acción creada por
+            Capcom y lanzada por primera vez en 2001. Nació como una idea
+            descartada de Resident Evil 4 y terminó convirtiéndose en una
+            franquicia propia, dirigida originalmente por Hideki Kamiya.
+
+            <br><br>
+
+            Sigue a Dante, un cazador de demonios mitad humano y mitad
+            demonio que dirige un negocio llamado "Devil May Cry". Su
+            historia mezcla fantasía oscura, familia, rivalidad entre
+            hermanos y mucho sentido del humor.
+
+            <br><br>
+
+            Lo que la hace especial es su sistema de combate: encadenar
+            ataques, esquivar y variar de armas para conseguir combos cada
+            vez más vistosos, medidos con un ranking de estilo que va de
+            D hasta SSS.
+
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         CARACTERÍSTICAS
+    ========================== -->
+
+    <section id="caracteristicas" class="section fondo">
+
+        <h2>LO QUE DEFINE A LA SAGA</h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>⚔️ Dante</h3>
+
+                <p>
+                    Cazador de demonios de cabello blanco y abrigo rojo.
+                    Su arma insignia es la espada Rebellion, junto a sus
+                    pistolas Ebony e Ivory.
+                </p>
+
+                <button onclick="mostrarServicio('Dante')">
+                    Ver más
+                </button>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🔥 Devil Trigger</h3>
+
+                <p>
+                    La transformación demoníaca que aumenta el poder de
+                    los personajes y refleja su herencia de Sparda.
+                </p>
+
+                <button onclick="mostrarServicio('Devil Trigger')">
+                    Ver más
+                </button>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>🎸 Estilo</h3>
+
+                <p>
+                    El sistema de rango estilístico premia los combates
+                    variados y espectaculares, no solo ganar.
+                </p>
+
+                <button onclick="mostrarServicio('Estilo')">
+                    Ver más
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         GALERÍA INTERACTIVA
+    ========================== -->
+
+    <section id="galeria" class="section">
+
+        <h2>LOS JUEGOS DE LA SAGA</h2>
+
+        <p class="texto-centro pista">
+            Pasa el cursor sobre una imagen para agrandarla y haz clic para
+            leer su historia.
+        </p>
+
+        <div class="galeria">
+
+            <figure class="juego">
+                <img
+                    src="dmc1.jpg"
+                    alt="Devil May Cry (2001)"
+                    data-titulo="Devil May Cry"
+                    data-anio="2001"
+                    data-historia="Dante dirige una agencia de cazadores de demonios cuando aparece Trish, una mujer idéntica a su madre Eva, que le encarga viajar a la isla Mallet. Allí descubre que el emperador demonio Mundus, al que su padre Sparda selló hace siglos, busca volver al mundo humano. Dante lo enfrenta, lo derrota y Trish se une a él. Aquí se establece la herencia de Sparda y el origen del negocio Devil May Cry."
+                    onclick="ampliarImagen(this)"
+                >
+                <figcaption>Devil May Cry (2001)</figcaption>
+            </figure>
+
+            <figure class="juego">
+                <img
+                    src="dmc2.jpg"
+                    alt="Devil May Cry 2 (2003)"
+                    data-titulo="Devil May Cry 2"
+                    data-anio="2003"
+                    data-historia="Dante viaja a la isla Dumary, donde conoce a Lucia, una cazadora de demonios creada para proteger a su gente. Ambos se enfrentan a Arius, un empresario que quiere usar el poder de los Arcanos para invocar al demonio Argosax. Es la entrega con el tono más sobrio de la saga, y se centra en la unión entre Dante y Lucia para detener el plan de Arius."
+                    onclick="ampliarImagen(this)"
+                >
+                <figcaption>Devil May Cry 2 (2003)</figcaption>
+            </figure>
+
+            <figure class="juego">
+                <img
+                    src="dmc3.jpg"
+                    alt="Devil May Cry 3: Dante's Awakening (2005)"
+                    data-titulo="Devil May Cry 3: Dante's Awakening"
+                    data-anio="2005"
+                    data-historia="Es la precuela. Dante es joven y arrogante cuando su hermano gemelo Vergil activa la torre Temen-ni-gru para conseguir el poder de su padre Sparda. Entre ambos estalla una rivalidad que los lleva a enfrentarse en la cima de la torre. Vergil cae al mundo demoníaco y Dante despierta por completo su poder. También aparece Lady, otra cazadora con su propio motivo para llegar a la torre."
+                    onclick="ampliarImagen(this)"
+                >
+                <figcaption>Devil May Cry 3 (2005)</figcaption>
+            </figure>
+
+            <figure class="juego">
+                <img
+                    src="dmc4.jpg"
+                    alt="Devil May Cry 4 (2008)"
+                    data-titulo="Devil May Cry 4"
+                    data-anio="2008"
+                    data-historia="Presenta a Nero, un joven miembro de la Orden de la Espada en la ciudad de Fortuna, con un brazo demoníaco llamado Devil Bringer. Tras el asesinato del líder de la Orden, el cardenal Sanctus, Nero parte tras Dante, creyéndolo culpable. Terminan aliándose para frenar los planes de Sanctus, que busca controlar el poder de Sparda."
+                    onclick="ampliarImagen(this)"
+                >
+                <figcaption>Devil May Cry 4 (2008)</figcaption>
+            </figure>
+
+            <figure class="juego">
+                <img
+                    src="dmc.jpg"
+                    alt="DmC: Devil May Cry (2013)"
+                    data-titulo="DmC: Devil May Cry"
+                    data-anio="2013"
+                    data-historia="Reinicio de la saga desarrollado por Ninja Theory. Aquí Dante es un nefilim, hijo del demonio Sparda y del ángel Eva, y vive en una ciudad controlada por el demonio Mundus. Con ayuda de su hermano Vergil, líder de un grupo llamado La Orden, y de la médium Kat, se enfrenta a Mundus para liberar a la humanidad. Tiene su propia continuidad, separada de los demás juegos."
+                    onclick="ampliarImagen(this)"
+                >
+                <figcaption>DmC: Devil May Cry (2013)</figcaption>
+            </figure>
+
+            <figure class="juego">
+                <img
+                    src="dmc5.jpg"
+                    alt="Devil May Cry 5 (2019)"
+                    data-titulo="Devil May Cry 5"
+                    data-anio="2019"
+                    data-historia="Un demonio llamado Urizen planta el árbol demoníaco Qliphoth en Red Grave City. Nero, Dante y un misterioso invocador llamado V se unen para detenerlo. Se revela que V es una mitad de Vergil, separada de su lado demoníaco, Urizen. Los hermanos Dante y Vergil acaban enfrentándose de nuevo y Nero descubre su vínculo con la familia de Sparda."
+                    onclick="ampliarImagen(this)"
+                >
+                <figcaption>Devil May Cry 5 (2019)</figcaption>
+            </figure>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         VENTANA DE HISTORIA
+    ========================== -->
+
+    <div id="modal" class="modal" onclick="cerrarModal(event)">
+
+        <div class="modal-contenido" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+
+            <button class="modal-cerrar" onclick="cerrarModal()" aria-label="Cerrar">✕</button>
+
+            <img id="modal-imagen" src="" alt="">
+
+            <div class="modal-texto">
+                <h3 id="modal-titulo"></h3>
+                <p id="modal-anio" class="modal-anio"></p>
+                <p id="modal-historia"></p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         CONTACTO
+    ========================== -->
+
+    <section id="contacto" class="section fondo">
+
+        <h2>¿ERES FAN DE DEVIL MAY CRY?</h2>
+
+        <p class="texto-centro">
+            Cuéntanos cuál es tu juego favorito de la saga y por qué.
+        </p>
+
+        <form onsubmit="enviarFormulario(event)">
+
+            <input
+                type="text"
+                id="nombre"
+                placeholder="Tu nombre"
+                required
+            >
+
+            <input
+                type="email"
+                id="correo"
+                placeholder="Correo electrónico"
+                required
+            >
+
+            <textarea
+                id="mensaje"
+                placeholder="¿Cuál es tu Devil May Cry favorito?"
+                required
+            ></textarea>
+
+            <button type="submit">
+                ENVIAR
+            </button>
+
+        </form>
+
+    </section>
+
+
+    <!-- =========================
+         PIE DE PÁGINA
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 DEVIL MAY CRY
+        </p>
+
+        <p>
+            Página de fans dedicada a la saga de Capcom.
+        </p>
+
+    </footer>
+
+
+    <!-- Conexión con JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
