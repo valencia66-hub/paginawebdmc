@@ -1,85 +1,251 @@
-/* =========================
-   BOTÓN PRINCIPAL
-========================= */
+let carrito = [];
 
-function mostrarMensaje() {
-    document.getElementById("nosotros").scrollIntoView({ behavior: "smooth" });
+// FORMATO DE PRECIOS COLOMBIANOS
+
+function formatoPrecio(precio) {
+    return precio.toLocaleString("es-CO", {
+        style: "currency",
+        currency: "COP",
+        maximumFractionDigits: 0
+    });
 }
 
+// AGREGAR PRODUCTOS AL CARRITO
 
-/* =========================
-   TARJETAS "VER MÁS"
-========================= */
+function agregarAlCarrito(nombre, precio) {
 
-const detalles = {
-    "Dante": "Hijo del demonio Sparda y de la humana Eva, Dante es el protagonista de la saga. Usa la espada Rebellion y las pistolas Ebony e Ivory, y se distingue por su humor y su amor por la pizza.",
-    "Devil Trigger": "Es la forma demoníaca de Dante, Vergil y Nero. Al activarla aumentan su fuerza, su velocidad y su resistencia, y cada personaje tiene su propia apariencia.",
-    "Estilo": "El sistema de estilo puntúa tus combos de D a SSS. Cuanto más variados sean tus ataques y menos daño recibas, más alto será el rango."
-};
-
-function mostrarServicio(nombre) {
-    abrirModal(nombre, "Devil May Cry", detalles[nombre] || "", "");
-}
-
-
-/* =========================
-   GALERÍA INTERACTIVA
-========================= */
-
-function ampliarImagen(img) {
-    abrirModal(
-        img.dataset.titulo,
-        "Lanzamiento: " + img.dataset.anio,
-        img.dataset.historia,
-        img.src
+    const productoExistente = carrito.find(
+        producto => producto.nombre === nombre
     );
-}
 
-function abrirModal(titulo, anio, historia, imagen) {
-    const modal = document.getElementById("modal");
-    const imgModal = document.getElementById("modal-imagen");
+    if (productoExistente) {
 
-    document.getElementById("modal-titulo").textContent = titulo;
-    document.getElementById("modal-anio").textContent = anio;
-    document.getElementById("modal-historia").textContent = historia;
+        productoExistente.cantidad++;
 
-    // Si no hay imagen (tarjetas), se oculta
-    if (imagen) {
-        imgModal.src = imagen;
-        imgModal.alt = titulo;
-        imgModal.style.display = "block";
     } else {
-        imgModal.style.display = "none";
+
+        carrito.push({
+            nombre: nombre,
+            precio: precio,
+            cantidad: 1
+        });
+
     }
 
-    modal.classList.add("activo");
+    actualizarCarrito();
+
+    alert(nombre + " agregado al carrito");
 }
 
-function cerrarModal(evento) {
-    // Solo cierra si se hace clic en el fondo o en el botón ✕
-    if (!evento || evento.target.id === "modal" || evento.target.classList.contains("modal-cerrar")) {
-        document.getElementById("modal").classList.remove("activo");
-    }
+// ACTUALIZAR CARRITO
+
+function actualizarCarrito() {
+
+    const cartItems = document.getElementById("cart-items");
+    const cartTotal = document.getElementById("cart-total");
+    const cartCount = document.getElementById("cart-count");
+
+    cartItems.innerHTML = "";
+
+    let total = 0;
+    let cantidadTotal = 0;
+
+    carrito.forEach((producto, index) => {
+
+        const subtotal = producto.precio * producto.cantidad;
+
+        total += subtotal;
+        cantidadTotal += producto.cantidad;
+
+        // CONTENEDOR DEL PRODUCTO
+
+        const item = document.createElement("div");
+        item.className = "cart-item";
+
+        // INFORMACIÓN
+
+        const info = document.createElement("div");
+        info.className = "cart-item-info";
+
+        const nombre = document.createElement("strong");
+        nombre.textContent = producto.nombre;
+
+        const precio = document.createElement("p");
+        precio.textContent = formatoPrecio(subtotal);
+
+        info.appendChild(nombre);
+        info.appendChild(precio);
+
+        // BOTONES DE CANTIDAD
+
+        const acciones = document.createElement("div");
+        acciones.className = "cart-item-actions";
+
+        const disminuir = document.createElement("button");
+        disminuir.textContent = "-";
+
+        disminuir.onclick = function () {
+            cambiarCantidad(index, -1);
+        };
+
+        const cantidad = document.createElement("span");
+        cantidad.textContent = producto.cantidad;
+
+        const aumentar = document.createElement("button");
+        aumentar.textContent = "+";
+
+        aumentar.onclick = function () {
+            cambiarCantidad(index, 1);
+        };
+
+        // ELIMINAR PRODUCTO
+
+        const eliminar = document.createElement("button");
+        eliminar.textContent = "Eliminar";
+        eliminar.className = "remove-button";
+
+        eliminar.onclick = function () {
+            eliminarProducto(index);
+        };
+
+        acciones.appendChild(disminuir);
+        acciones.appendChild(cantidad);
+        acciones.appendChild(aumentar);
+        acciones.appendChild(eliminar);
+
+        item.appendChild(info);
+        item.appendChild(acciones);
+
+        cartItems.appendChild(item);
+
+    });
+
+    cartTotal.textContent = formatoPrecio(total);
+    cartCount.textContent = cantidadTotal;
+
+    document.getElementById("payment-total").textContent =
+        formatoPrecio(total);
+
 }
 
-// Cerrar con la tecla Escape
-document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-        document.getElementById("modal").classList.remove("activo");
+// CAMBIAR CANTIDAD
+
+function cambiarCantidad(index, cambio) {
+
+    carrito[index].cantidad += cambio;
+
+    if (carrito[index].cantidad <= 0) {
+
+        carrito.splice(index, 1);
+
     }
-});
 
+    actualizarCarrito();
 
-/* =========================
-   FORMULARIO
-========================= */
+}
 
-function enviarFormulario(evento) {
-    evento.preventDefault();
+// ELIMINAR PRODUCTO
+
+function eliminarProducto(index) {
+
+    carrito.splice(index, 1);
+
+    actualizarCarrito();
+
+}
+
+// MOSTRAR CARRITO
+
+function mostrarCarrito() {
+
+    document.getElementById("cart-modal").style.display = "block";
+
+}
+
+// CERRAR CARRITO
+
+function cerrarCarrito() {
+
+    document.getElementById("cart-modal").style.display = "none";
+
+}
+
+// ABRIR PASARELA DE PAGO
+
+function abrirPasarela() {
+
+    if (carrito.length === 0) {
+
+        alert("Tu carrito está vacío");
+
+        return;
+
+    }
+
+    document.getElementById("payment-modal").style.display = "block";
+
+    document.getElementById("payment-total").textContent =
+        document.getElementById("cart-total").textContent;
+
+}
+
+// CERRAR PASARELA
+
+function cerrarPasarela() {
+
+    document.getElementById("payment-modal").style.display = "none";
+
+}
+
+// CONFIRMAR COMPRA SIMULADA
+
+document.getElementById("payment-form").addEventListener("submit", function(event) {
+
+    event.preventDefault();
 
     const nombre = document.getElementById("nombre").value;
+    const correo = document.getElementById("correo").value;
+    const metodo = document.getElementById("metodo").value;
 
-    alert("¡Gracias, " + nombre + "! Tu opinión sobre Devil May Cry fue recibida.");
+    if (carrito.length === 0) {
 
-    evento.target.reset();
-}
+        alert("Tu carrito está vacío");
+
+        return;
+
+    }
+
+    const total = carrito.reduce(
+        (suma, producto) => suma + producto.precio * producto.cantidad,
+        0
+    );
+
+    alert(
+        "¡COMPRA SIMULADA EXITOSA!\n\n" +
+        "Cliente: " + nombre + "\n" +
+        "Correo: " + correo + "\n" +
+        "Método de pago: " + metodo + "\n" +
+        "Total: " + formatoPrecio(total) +
+        "\n\nEste proyecto no realiza pagos reales."
+    );
+
+    // VACÍAR CARRITO
+
+    carrito = [];
+
+    actualizarCarrito();
+
+    // LIMPIAR FORMULARIO
+
+    document.getElementById("payment-form").reset();
+
+    // CERRAR VENTANAS
+
+    cerrarPasarela();
+    cerrarCarrito();
+
+});
+
+// INICIALIZAR CARRITO
+
+actualizarCarrito();
