@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,340 +7,336 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>DEVIL MAY CRY</title>
+    <title>Devil May Cry Store</title>
 
-    <!-- Tipografía (opcional, tiene alternativa si no carga) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
-
-    <!-- Conexión con CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <!-- =========================
-         ENCABEZADO
-    ========================== -->
+    <!-- ENCABEZADO -->
+    <header class="header">
 
-    <header>
-
-        <div class="logo">
-            DEVIL MAY CRY
-        </div>
+        <h1>DEVIL MAY <span>CRY</span></h1>
 
         <nav>
             <a href="#inicio">Inicio</a>
-            <a href="#nosotros">¿Qué es Devil May Cry?</a>
-            <a href="#caracteristicas">Características</a>
-            <a href="#galeria">Los juegos</a>
+            <a href="#juegos">Videojuegos</a>
+            <a href="#consolas">Consolas</a>
             <a href="#contacto">Contacto</a>
         </nav>
 
+        <button class="cart-button" onclick="mostrarCarrito()">
+            🛒 Carrito (<span id="cart-count">0</span>)
+        </button>
+
     </header>
 
+    <!-- PORTADA -->
+    <section class="hero" id="inicio">
 
-    <!-- =========================
-         SECCIÓN PRINCIPAL
-    ========================== -->
-
-    <section id="inicio" class="hero">
-
-        <div class="hero-text">
-
-            <h1>DEVIL MAY CRY</h1>
+        <div class="hero-content">
+            <h2>WELCOME TO HELL</h2>
 
             <p>
-                Dante, hijo del caballero oscuro Sparda, caza demonios con
-                estilo, humor y una espada enorme. Esta es la saga de acción
-                que definió el género "hack and slash".
+                Bienvenido a la tienda gamer de Devil May Cry.
+                Encuentra tus videojuegos y consolas favoritas.
             </p>
 
-            <button onclick="mostrarMensaje()">
-                Conoce la saga
+            <a href="#juegos" class="hero-button">
+                Explorar productos
+            </a>
+        </div>
+
+    </section>
+
+    <!-- VIDEOJUEGOS -->
+    <main>
+
+        <section id="juegos">
+
+            <h2 class="section-title">VIDEOJUEGOS</h2>
+
+            <div class="product-grid">
+
+                <article class="product">
+                    <img src="dmc1.jpg" alt="Devil May Cry 1">
+
+                    <h3>Devil May Cry 1</h3>
+                    <p>Edición clásica</p>
+                    <strong>$59.900</strong>
+
+                    <button onclick="agregarAlCarrito('Devil May Cry 1',59900)">
+                        Agregar al carrito
+                    </button>
+                </article>
+
+                <article class="product">
+                    <img src="dmc2.jpg" alt="Devil May Cry 2">
+
+                    <h3>Devil May Cry 2</h3>
+                    <p>Edición clásica</p>
+                    <strong>$69.900</strong>
+
+                    <button onclick="agregarAlCarrito('Devil May Cry 2',69900)">
+                        Agregar al carrito
+                    </button>
+                </article>
+
+                <article class="product">
+                    <img src="dmc3.jpg" alt="Devil May Cry 3">
+
+                    <h3>Devil May Cry 3</h3>
+                    <p>Special Edition</p>
+                    <strong>$89.900</strong>
+
+                    <button onclick="agregarAlCarrito('Devil May Cry 3 Special Edition',89900)">
+                        Agregar al carrito
+                    </button>
+                </article>
+
+                <article class="product">
+                    <img src="dmc4.jpg" alt="Devil May Cry 4">
+
+                    <h3>Devil May Cry 4</h3>
+                    <p>Special Edition</p>
+                    <strong>$99.900</strong>
+
+                    <button onclick="agregarAlCarrito('Devil May Cry 4 Special Edition',99900)">
+                        Agregar al carrito
+                    </button>
+                </article>
+
+                <article class="product">
+                    <img src="dmc.jpg" alt="DmC Devil May Cry">
+
+                    <h3>DmC: Devil May Cry</h3>
+                    <p>Definitive Edition</p>
+                    <strong>$109.900</strong>
+
+                    <button onclick="agregarAlCarrito('DmC Definitive Edition',109900)">
+                        Agregar al carrito
+                    </button>
+                </article>
+
+                <article class="product">
+                    <img src="dmc_hd.jpg" alt="Devil May Cry HD Collection">
+
+                    <h3>Devil May Cry HD</h3>
+                    <p>HD Collection</p>
+                    <strong>$119.900</strong>
+
+                    <button onclick="agregarAlCarrito('Devil May Cry HD Collection',119900)">
+                        Agregar al carrito
+                    </button>
+                </article>
+
+                <article class="product">
+                    <img src="dmc5.jpg" alt="Devil May Cry 5">
+
+                    <h3>Devil May Cry 5</h3>
+                    <p>Edición estándar</p>
+                    <strong>$129.900</strong>
+
+                    <button onclick="agregarAlCarrito('Devil May Cry 5',129900)">
+                        Agregar al carrito
+                    </button>
+                </article>
+
+                <article class="product">
+                    <img src="dmc_deluxe.jpg" alt="Devil May Cry 5 Deluxe">
+
+                    <h3>Devil May Cry 5</h3>
+                    <p>Deluxe Edition</p>
+                    <strong>$149.900</strong>
+
+                    <button onclick="agregarAlCarrito('Devil May Cry 5 Deluxe Edition',149900)">
+                        Agregar al carrito
+                    </button>
+                </article>
+
+                <article class="product">
+                    <img src="dmc_special.jpg" alt="Devil May Cry 5 Special Edition">
+
+                    <h3>Devil May Cry 5</h3>
+                    <p>Special Edition</p>
+                    <strong>$169.900</strong>
+
+                    <button onclick="agregarAlCarrito('Devil May Cry 5 Special Edition',169900)">
+                        Agregar al carrito
+                    </button>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- CONSOLAS -->
+        <section id="consolas">
+
+            <h2 class="section-title">CONSOLAS GAMER</h2>
+
+            <div class="product-grid">
+
+                <article class="product">
+                    <img src="ps3.jpg" alt="PlayStation 3">
+
+                    <h3>PlayStation 3</h3>
+                    <p>Consola clásica</p>
+                    <strong>$499.900</strong>
+
+                    <button onclick="agregarAlCarrito('PlayStation 3',499900)">
+                        Agregar al carrito
+                    </button>
+                </article>
+
+                <article class="product">
+                    <img src="ps4slim.jpg" alt="PlayStation 4 Slim">
+
+                    <h3>PlayStation 4 Slim</h3>
+                    <p>Consola Sony</p>
+                    <strong>$899.900</strong>
+
+                    <button onclick="agregarAlCarrito('PlayStation 4 Slim',899900)">
+                        Agregar al carrito
+                    </button>
+                </article>
+
+                <article class="product">
+                    <img src="ps5slim.jpg" alt="PlayStation 5 Slim">
+
+                    <h3>PlayStation 5 Slim</h3>
+                    <p>Nueva generación</p>
+                    <strong>$2.199.900</strong>
+
+                    <button onclick="agregarAlCarrito('PlayStation 5 Slim',2199900)">
+                        Agregar al carrito
+                    </button>
+                </article>
+
+                <article class="product">
+                    <img src="xboxx.jpg" alt="Xbox Series X">
+
+                    <h3>Xbox Series X</h3>
+                    <p>Consola Microsoft</p>
+                    <strong>$2.499.900</strong>
+
+                    <button onclick="agregarAlCarrito('Xbox Series X',2499900)">
+                        Agregar al carrito
+                    </button>
+                </article>
+
+                <article class="product">
+                    <img src="xboxs.jpg" alt="Xbox Series S">
+
+                    <h3>Xbox Series S</h3>
+                    <p>Consola compacta</p>
+                    <strong>$1.499.900</strong>
+
+                    <button onclick="agregarAlCarrito('Xbox Series S',1499900)">
+                        Agregar al carrito
+                    </button>
+                </article>
+
+                <article class="product">
+                    <img src="nintendo.jpg" alt="Nintendo Switch OLED">
+
+                    <h3>Nintendo Switch OLED</h3>
+                    <p>Consola portátil</p>
+                    <strong>$1.299.900</strong>
+
+                    <button onclick="agregarAlCarrito('Nintendo Switch OLED',1299900)">
+                        Agregar al carrito
+                    </button>
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- CARRITO -->
+    <div id="cart-modal" class="modal">
+
+        <div class="modal-content">
+
+            <button class="close-button" onclick="cerrarCarrito()">✕</button>
+
+            <h2>Tu carrito</h2>
+
+            <div id="cart-items"></div>
+
+            <h3>
+                Total:
+                <span id="cart-total">$0</span>
+            </h3>
+
+            <button class="checkout-button" onclick="abrirPasarela()">
+                Continuar al pago
             </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         ¿QUÉ ES DEVIL MAY CRY?
-    ========================== -->
-
-    <section id="nosotros" class="section">
-
-        <h2>¿QUÉ ES DEVIL MAY CRY?</h2>
-
-        <p class="texto-centro">
-
-            Devil May Cry es una saga de videojuegos de acción creada por
-            Capcom y lanzada por primera vez en 2001. Nació como una idea
-            descartada de Resident Evil 4 y terminó convirtiéndose en una
-            franquicia propia, dirigida originalmente por Hideki Kamiya.
-
-            <br><br>
-
-            Sigue a Dante, un cazador de demonios mitad humano y mitad
-            demonio que dirige un negocio llamado "Devil May Cry". Su
-            historia mezcla fantasía oscura, familia, rivalidad entre
-            hermanos y mucho sentido del humor.
-
-            <br><br>
-
-            Lo que la hace especial es su sistema de combate: encadenar
-            ataques, esquivar y variar de armas para conseguir combos cada
-            vez más vistosos, medidos con un ranking de estilo que va de
-            D hasta SSS.
-
-        </p>
-
-    </section>
-
-
-    <!-- =========================
-         CARACTERÍSTICAS
-    ========================== -->
-
-    <section id="caracteristicas" class="section fondo">
-
-        <h2>LO QUE DEFINE A LA SAGA</h2>
-
-        <div class="cards">
-
-            <div class="card">
-
-                <h3>⚔️ Dante</h3>
-
-                <p>
-                    Cazador de demonios de cabello blanco y abrigo rojo.
-                    Su arma insignia es la espada Rebellion, junto a sus
-                    pistolas Ebony e Ivory.
-                </p>
-
-                <button onclick="mostrarServicio('Dante')">
-                    Ver más
-                </button>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>🔥 Devil Trigger</h3>
-
-                <p>
-                    La transformación demoníaca que aumenta el poder de
-                    los personajes y refleja su herencia de Sparda.
-                </p>
-
-                <button onclick="mostrarServicio('Devil Trigger')">
-                    Ver más
-                </button>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>🎸 Estilo</h3>
-
-                <p>
-                    El sistema de rango estilístico premia los combates
-                    variados y espectaculares, no solo ganar.
-                </p>
-
-                <button onclick="mostrarServicio('Estilo')">
-                    Ver más
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         GALERÍA INTERACTIVA
-    ========================== -->
-
-    <section id="galeria" class="section">
-
-        <h2>LOS JUEGOS DE LA SAGA</h2>
-
-        <p class="texto-centro pista">
-            Pasa el cursor sobre una imagen para agrandarla y haz clic para
-            leer su historia.
-        </p>
-
-        <div class="galeria">
-
-            <figure class="juego">
-                <img
-                    src="dmc1.jpg"
-                    alt="Devil May Cry (2001)"
-                    data-titulo="Devil May Cry"
-                    data-anio="2001"
-                    data-historia="Dante dirige una agencia de cazadores de demonios cuando aparece Trish, una mujer idéntica a su madre Eva, que le encarga viajar a la isla Mallet. Allí descubre que el emperador demonio Mundus, al que su padre Sparda selló hace siglos, busca volver al mundo humano. Dante lo enfrenta, lo derrota y Trish se une a él. Aquí se establece la herencia de Sparda y el origen del negocio Devil May Cry."
-                    onclick="ampliarImagen(this)"
-                >
-                <figcaption>Devil May Cry (2001)</figcaption>
-            </figure>
-
-            <figure class="juego">
-                <img
-                    src="dmc2.jpg"
-                    alt="Devil May Cry 2 (2003)"
-                    data-titulo="Devil May Cry 2"
-                    data-anio="2003"
-                    data-historia="Dante viaja a la isla Dumary, donde conoce a Lucia, una cazadora de demonios creada para proteger a su gente. Ambos se enfrentan a Arius, un empresario que quiere usar el poder de los Arcanos para invocar al demonio Argosax. Es la entrega con el tono más sobrio de la saga, y se centra en la unión entre Dante y Lucia para detener el plan de Arius."
-                    onclick="ampliarImagen(this)"
-                >
-                <figcaption>Devil May Cry 2 (2003)</figcaption>
-            </figure>
-
-            <figure class="juego">
-                <img
-                    src="dmc3.jpg"
-                    alt="Devil May Cry 3: Dante's Awakening (2005)"
-                    data-titulo="Devil May Cry 3: Dante's Awakening"
-                    data-anio="2005"
-                    data-historia="Es la precuela. Dante es joven y arrogante cuando su hermano gemelo Vergil activa la torre Temen-ni-gru para conseguir el poder de su padre Sparda. Entre ambos estalla una rivalidad que los lleva a enfrentarse en la cima de la torre. Vergil cae al mundo demoníaco y Dante despierta por completo su poder. También aparece Lady, otra cazadora con su propio motivo para llegar a la torre."
-                    onclick="ampliarImagen(this)"
-                >
-                <figcaption>Devil May Cry 3 (2005)</figcaption>
-            </figure>
-
-            <figure class="juego">
-                <img
-                    src="dmc4.jpg"
-                    alt="Devil May Cry 4 (2008)"
-                    data-titulo="Devil May Cry 4"
-                    data-anio="2008"
-                    data-historia="Presenta a Nero, un joven miembro de la Orden de la Espada en la ciudad de Fortuna, con un brazo demoníaco llamado Devil Bringer. Tras el asesinato del líder de la Orden, el cardenal Sanctus, Nero parte tras Dante, creyéndolo culpable. Terminan aliándose para frenar los planes de Sanctus, que busca controlar el poder de Sparda."
-                    onclick="ampliarImagen(this)"
-                >
-                <figcaption>Devil May Cry 4 (2008)</figcaption>
-            </figure>
-
-            <figure class="juego">
-                <img
-                    src="dmc.jpg"
-                    alt="DmC: Devil May Cry (2013)"
-                    data-titulo="DmC: Devil May Cry"
-                    data-anio="2013"
-                    data-historia="Reinicio de la saga desarrollado por Ninja Theory. Aquí Dante es un nefilim, hijo del demonio Sparda y del ángel Eva, y vive en una ciudad controlada por el demonio Mundus. Con ayuda de su hermano Vergil, líder de un grupo llamado La Orden, y de la médium Kat, se enfrenta a Mundus para liberar a la humanidad. Tiene su propia continuidad, separada de los demás juegos."
-                    onclick="ampliarImagen(this)"
-                >
-                <figcaption>DmC: Devil May Cry (2013)</figcaption>
-            </figure>
-
-            <figure class="juego">
-                <img
-                    src="dmc5.jpg"
-                    alt="Devil May Cry 5 (2019)"
-                    data-titulo="Devil May Cry 5"
-                    data-anio="2019"
-                    data-historia="Un demonio llamado Urizen planta el árbol demoníaco Qliphoth en Red Grave City. Nero, Dante y un misterioso invocador llamado V se unen para detenerlo. Se revela que V es una mitad de Vergil, separada de su lado demoníaco, Urizen. Los hermanos Dante y Vergil acaban enfrentándose de nuevo y Nero descubre su vínculo con la familia de Sparda."
-                    onclick="ampliarImagen(this)"
-                >
-                <figcaption>Devil May Cry 5 (2019)</figcaption>
-            </figure>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         VENTANA DE HISTORIA
-    ========================== -->
-
-    <div id="modal" class="modal" onclick="cerrarModal(event)">
-
-        <div class="modal-contenido" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
-
-            <button class="modal-cerrar" onclick="cerrarModal()" aria-label="Cerrar">✕</button>
-
-            <img id="modal-imagen" src="" alt="">
-
-            <div class="modal-texto">
-                <h3 id="modal-titulo"></h3>
-                <p id="modal-anio" class="modal-anio"></p>
-                <p id="modal-historia"></p>
-            </div>
 
         </div>
 
     </div>
 
+    <!-- PASARELA DE PAGO SIMULADA -->
+    <div id="payment-modal" class="modal">
 
-    <!-- =========================
-         CONTACTO
-    ========================== -->
+        <div class="modal-content">
 
-    <section id="contacto" class="section fondo">
+            <button class="close-button" onclick="cerrarPasarela()">✕</button>
 
-        <h2>¿ERES FAN DE DEVIL MAY CRY?</h2>
+            <h2>Finalizar compra</h2>
 
-        <p class="texto-centro">
-            Cuéntanos cuál es tu juego favorito de la saga y por qué.
-        </p>
+            <p class="payment-description">
+                Pago simulado para proyecto académico.
+            </p>
 
-        <form onsubmit="enviarFormulario(event)">
+            <form id="payment-form">
 
-            <input
-                type="text"
-                id="nombre"
-                placeholder="Tu nombre"
-                required
-            >
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" required>
 
-            <input
-                type="email"
-                id="correo"
-                placeholder="Correo electrónico"
-                required
-            >
+                <label for="correo">Correo electrónico</label>
+                <input type="email" id="correo" required>
 
-            <textarea
-                id="mensaje"
-                placeholder="¿Cuál es tu Devil May Cry favorito?"
-                required
-            ></textarea>
+                <label for="metodo">Método de pago</label>
 
-            <button type="submit">
-                ENVIAR
-            </button>
+                <select id="metodo" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Tarjeta">Tarjeta de crédito</option>
+                    <option value="Transferencia">Transferencia bancaria</option>
+                    <option value="Efectivo">Efectivo</option>
+                </select>
 
-        </form>
+                <h3>
+                    Total a pagar:
+                    <span id="payment-total">$0</span>
+                </h3>
 
-    </section>
+                <button type="submit" class="checkout-button">
+                    Confirmar compra simulada
+                </button>
 
+            </form>
 
-    <!-- =========================
-         PIE DE PÁGINA
-    ========================== -->
+        </div>
 
-    <footer>
+    </div>
 
-        <p>
-            © 2026 DEVIL MAY CRY
-        </p>
+    <!-- PIE DE PÁGINA -->
+    <footer id="contacto">
 
-        <p>
-            Página de fans dedicada a la saga de Capcom.
-        </p>
+        <h3>DEVIL MAY CRY STORE</h3>
+
+        <p>Proyecto académico de tienda gamer.</p>
+
+        <p>© 2026 - Todos los derechos reservados.</p>
 
     </footer>
-
-
-    <!-- Conexión con JavaScript -->
 
     <script src="script.js"></script>
 
 </body>
-
 </html>
